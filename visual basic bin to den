@@ -1,0 +1,58 @@
+Module Module1
+
+    Sub Main()
+        Dim ValidBinaryString As Boolean = True
+        Dim x As String
+        Dim count As Integer
+        Dim binaryinput As String
+        Dim binaryrange As String
+        Dim binarychecked As String
+        Dim z As String
+        Dim y As String
+        z = 0
+
+
+
+        Console.WriteLine("Binary number =")
+        binaryinput = Console.ReadLine
+
+        If Len(binaryinput) <> 8 Then
+            ValidBinaryString = False
+        Else
+            ValidBinaryString = True
+        End If
+
+
+
+        If ValidBinaryString = False Then
+            Console.WriteLine("invalid range for the binary number")
+        Else
+            binaryrange = binaryinput
+        End If
+
+
+
+        For count = 1 To 8
+            x = Mid(binaryinput, count)
+            If x <> 0 Or x <> 1 Then
+                ValidBinaryString = False
+            Else : binarychecked = binaryinput
+
+            End If
+        Next count
+        If ValidBinaryString = True Then
+            For count = 0 To 7
+                y = Mid(binaryinput, count)
+                If y = 1 Then
+                    z = z + 128 / (count * count)
+                ElseIf y = 0 Then
+                    z = z
+                End If
+            Next count
+        End If
+        Console.WriteLine("the decimal value of the binary number is" + z)
+        Console.ReadKey()
+
+    End Sub
+
+End Module
